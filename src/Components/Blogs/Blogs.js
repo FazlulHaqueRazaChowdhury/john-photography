@@ -8,6 +8,8 @@ const Blogs = () => {
             <div className='blogs'>
                 <Header></Header>
                 <div className="container">
+                    <h1 className='special text-white'>Difference between authorization and authentication</h1>
+                    <p>First lets talk about authentication. Authentication is simply a process that verify someone and Authoriztion took place after authentication. It give access to the user very specificly . For example the after authentication someone we can give them access to his photo or it could be file or applications.That is called authorization. </p>
                     <h1 className='special text-white'> Why are you using firebase? What other options do you have to implement authentication?</h1>
                     <p className='text-secondary'>I'm Using Firebase for user authentication.So I can implement sign in and sign up. Except firebase there are also  some like Auth0 ,Prove, Okta, KeyCloack,etc. We can also those alternative of Firebase. </p>
                     <h1 className='special text-white'>  What other services does firebase provide other than authentication?</h1>
