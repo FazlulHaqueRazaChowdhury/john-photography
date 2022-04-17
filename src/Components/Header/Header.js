@@ -1,8 +1,11 @@
 import React from 'react';
 import CustomLink from '../CustomLink/CustomLink';
-
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { signOut } from 'firebase/auth';
 import './Header.css';
+import auth from '../../firebase.init';
 const Header = () => {
+    const [user, loading, error] = useAuthState(auth);
     return (
         <header>
             <div className="container">
@@ -15,9 +18,10 @@ const Header = () => {
                         <h2 className='special'>JOHN</h2>
                         <small>PRODUCTION</small>
                     </div>
-                    <div className="second-two d-flex">
+                    <div className="second-two d-flex align-items-center">
                         <CustomLink to='/about'>ABOUT</CustomLink>
-                        <CustomLink to='/logIn'>LOG IN</CustomLink>
+                        {user ? <button onClick={() => { signOut(auth) }}>SIGN OUT</button> : <CustomLink to='/logIn'>LOG IN</CustomLink>}
+                        <div className='text-white ms-3'>  {user?.displayName && user?.displayName || user?.email && user.email}</div>
                     </div>
                 </div>
             </div>
