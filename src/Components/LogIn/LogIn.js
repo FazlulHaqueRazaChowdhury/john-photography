@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import CustomLink from '../CustomLink/CustomLink';
@@ -27,7 +27,9 @@ const LogIn = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
     const [signInWithGoogle, googleUser, googleloading, googleError] = useSignInWithGoogle(auth);
-
+    const [sendPasswordResetEmail, sending, error3] = useSendPasswordResetEmail(
+        auth
+    );
     const handleEmail = e => {
         let validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.target.value);
         if (validEmail) {
@@ -53,6 +55,15 @@ const LogIn = () => {
 
     }
 
+    const handlePassReset = async () => {
+        if (userInfo.email !== '') {
+            await sendPasswordResetEmail(userInfo.email);
+            toast('Sent email')
+        } else {
+            toast('Please Give A Mail to Reset The password !')
+        }
+
+    }
     const handleSignIn = e => {
         e.preventDefault();
 
@@ -117,6 +128,9 @@ const LogIn = () => {
             }
         }
     }, [googleError])
+    if (sending) {
+        return 'A Password Reset Link is sending to your Email!';
+    }
     return (
         <div>
 
@@ -135,7 +149,9 @@ const LogIn = () => {
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" placeholder="Password" onChange={handlePassword} />
                     </Form.Group>
-                    <CustomLink to='/signUp'><p> Don't have an account? </p></CustomLink>
+                    <button className='underline text-white' onClick={handlePassReset}>Forgot Your Password?</button>
+                    <CustomLink to='/signUp'><p className='underline'> Don't have an account? </p></CustomLink>
+
                     <Button variant="outline-secondary" type="submit">
                         Log In
                     </Button>
