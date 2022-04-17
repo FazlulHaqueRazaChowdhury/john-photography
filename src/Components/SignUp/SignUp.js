@@ -7,12 +7,13 @@ import auth from '../../firebase.init';
 import CustomLink from '../CustomLink/CustomLink';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const SignUp = () => {
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
     const navigate = useNavigate();
-    const [signInWithGoogle, googleUser, googleloading, googleerror] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, googleUser, googleloading, googleError] = useSignInWithGoogle(auth);
     const [userInfo, setUserInfo] = useState({
         email: '',
         password: '',
@@ -80,14 +81,14 @@ const SignUp = () => {
     const handleSignup = event => {
         event.preventDefault();
         if (userInfo.confirmPassword === userInfo.password) {
-
+            toast('Email Verification send to user')
             createUserWithEmailAndPassword(userInfo.email, userInfo.password);
             return;
         }
 
     }
     useEffect(() => {
-        if (user || googleUser) {
+        if (user) {
             navigate(from);
         }
     }, [user])
@@ -96,6 +97,46 @@ const SignUp = () => {
             navigate(from)
         }
     }, [googleUser])
+    useEffect(() => {
+        if (error) {
+
+
+            switch (error?.code) {
+                case 'auth/email-already-in-use':
+                    toast('Email Already Exists')
+                    break;
+                case 'auth/invalid-email':
+                    toast('Email Is invalid')
+                    break;
+                case 'auth/invalid-password':
+                    toast('Password is invalid')
+                    break;
+                default:
+                    toast('something went wrong');
+                    break;
+            }
+
+        }
+    }, [error])
+    useEffect(() => {
+        if (googleError) {
+            switch (googleError?.code) {
+                case 'auth/email-already-in-use':
+                    toast('Email Already Exists')
+                    break;
+                case 'auth/invalid-email':
+                    toast('Email Is invalid')
+                    break;
+                case 'auth/invalid-password':
+                    toast('Password is invalid')
+                    break;
+                default:
+                    toast('something went wrong');
+                    break;
+
+            }
+        }
+    }, [googleError])
     return (
         <div>
             <div className="form">
@@ -150,6 +191,7 @@ const SignUp = () => {
             </div>
 
             <Footer></Footer>
+            <ToastContainer />
         </div>
     );
 };

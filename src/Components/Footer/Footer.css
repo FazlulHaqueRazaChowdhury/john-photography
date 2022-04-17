@@ -3,5 +3,6 @@ footer {
     height: 100%;
     color: white;
     overflow: hidden;
-
+    position: relative;
+    bottom: 0%;
 }

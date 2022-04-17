@@ -7,7 +7,7 @@ import CustomLink from '../CustomLink/CustomLink';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import './Login.css'
-
+import { ToastContainer, toast } from 'react-toastify';
 
 const LogIn = () => {
 
@@ -26,7 +26,7 @@ const LogIn = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
-    const [signInWithGoogle, googleUser, googleloading, googleerror] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, googleUser, googleloading, googleError] = useSignInWithGoogle(auth);
 
     const handleEmail = e => {
         let validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.target.value);
@@ -55,18 +55,68 @@ const LogIn = () => {
 
     const handleSignIn = e => {
         e.preventDefault();
+
         signInWithEmailAndPassword(userInfo.email, userInfo.password)
     }
+    // using for navigate 
     useEffect(() => {
         if (user) {
             navigate(from)
         }
     }, [user])
+    // using for navitage if google user 
     useEffect(() => {
         if (googleUser) {
             navigate(from)
         }
     }, [googleUser])
+
+    useEffect(() => {
+        if (error) {
+
+
+            switch (error?.code) {
+                case 'auth/email-already-in-use':
+                    toast('Email Already Exists')
+                    break;
+                case 'auth/invalid-email':
+                    toast('Email Is invalid')
+                    break;
+                case 'auth/invalid-password':
+                    toast('Password is invalid')
+                    break;
+                case 'auth/user-not-found':
+                    toast('Please Sign Up')
+                    break;
+                case 'auth/internal-error':
+                    toast('Wrong Password or Email')
+                    break;
+                default:
+                    toast('something went wrong');
+                    break;
+            }
+
+        }
+    }, [error])
+    useEffect(() => {
+        if (googleError) {
+            switch (googleError?.code) {
+                case 'auth/email-already-in-use':
+                    toast('Email Already Exists')
+                    break;
+                case 'auth/invalid-email':
+                    toast('Email Is invalid')
+                    break;
+                case 'auth/invalid-password':
+                    toast('Password is invalid')
+                    break;
+                default:
+                    toast('something went wrong');
+                    break;
+
+            }
+        }
+    }, [googleError])
     return (
         <div>
 
@@ -77,13 +127,13 @@ const LogIn = () => {
                 <Form className='text-white container' onSubmit={handleSignIn}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" onBlur={handleEmail} />
+                        <Form.Control type="email" placeholder="Enter email" onChange={handleEmail} />
 
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" onBlur={handlePassword} />
+                        <Form.Control type="password" placeholder="Password" onChange={handlePassword} />
                     </Form.Group>
                     <CustomLink to='/signUp'><p> Don't have an account? </p></CustomLink>
                     <Button variant="outline-secondary" type="submit">
@@ -107,6 +157,8 @@ const LogIn = () => {
             </div>
 
             <Footer></Footer>
+
+            <ToastContainer />
         </div>
 
     );
