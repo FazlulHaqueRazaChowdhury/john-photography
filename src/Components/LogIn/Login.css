@@ -1,0 +1,22 @@
+.form {
+    background-image: url('https://i.ibb.co/3sV4jtV/milad-fakurian-ICTj-WYzpoc0-unsplash.jpg');
+    height: 100vh;
+}
+
+.line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.line p {
+    margin: 15px 4px;
+
+}
+
+.line div {
+
+    background-color: white;
+    height: 2px;
+    width: 20%;
+}

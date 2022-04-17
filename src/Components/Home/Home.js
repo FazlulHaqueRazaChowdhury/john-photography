@@ -1,6 +1,7 @@
 import React from 'react';
 import Banner from '../Banner/Banner';
 import Counter from '../Counter/Counter';
+import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import Services from '../Services/Services';
 import Testomonials from '../Testomonials/Testomonials';
@@ -15,6 +16,7 @@ const Home = () => {
             <Counter></Counter>
             <Services></Services>
             <Testomonials></Testomonials>
+            <Footer></Footer>
         </div>
     );
 };

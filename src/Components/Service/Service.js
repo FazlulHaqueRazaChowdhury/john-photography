@@ -1,7 +1,12 @@
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './Service.css'
 const Service = ({ service }) => {
-    const { name, feature1, feature2, price, bg } = service;
+    const navigate = useNavigate();
+    const { id, name, feature1, feature2, price, bg } = service;
+    const handleNavigate = id => {
+        navigate(`/checkout/${id}`)
+    }
     return (
         <div className='cols'>
             <div className="card p-4 " style={{ backgroundImage: `url(${bg})` }}>
@@ -13,7 +18,9 @@ const Service = ({ service }) => {
                         <h6>{feature2}</h6>
                     </div>
 
-                    <button >BUY</button>
+                    <button onClick={() => {
+                        handleNavigate(id)
+                    }}>BUY</button>
                 </div>
             </div>
 
