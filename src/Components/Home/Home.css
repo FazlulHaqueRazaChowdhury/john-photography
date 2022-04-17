@@ -1,0 +1,18 @@
+.background-image {
+    background: url(https://i.ibb.co/mFyZtSs/petr-vysohlid-9fqw-Gq-GLUxc-unsplash.jpg);
+    height: 100vh;
+    background-attachment: fixed;
+    background-size: 110% 110%;
+    background-position: center center;
+    animation: shrink 5s infinite alternate;
+}
+
+@keyframes shrink {
+    0% {
+        background-size: 100% 100%;
+    }
+
+    100% {
+        background-size: 120% 120%;
+    }
+}

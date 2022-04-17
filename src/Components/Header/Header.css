@@ -1,0 +1,21 @@
+small {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h2,
+small {
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    margin: 0px 20px;
+    color: white;
+}
+
+header {
+    position: sticky;
+    top: 0%;
+    background-color: rgba(0, 0, 0, 0.048);
+
+}
