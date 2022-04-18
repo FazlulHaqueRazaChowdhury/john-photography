@@ -1,6 +1,6 @@
 
 
-import React, { useState } from 'react';
+
 import { Button } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { ToastContainer, toast } from 'react-toastify';
@@ -15,8 +15,8 @@ const CheckoutCart = ({ service }) => {
 
 
             <div className="container h-100 p-4">
-                <div className="row row-cols-1 row-cols-md-2 justify-content-center align-items-center h-100">
-                    <div className="user-details text-white d-flex flex-column justify-content-center  align-items-center h-100">
+                <div className="row row-cols-1 row-cols-md-2 justify-content-center align-items-center h-100 ">
+                    <div className="user-details text-white d-flex flex-column justify-content-center  align-items-center h-100 ">
                         <div className="group-field">
                             <label htmlFor='name' >Name</label>
                             <br />
@@ -35,7 +35,7 @@ const CheckoutCart = ({ service }) => {
                         </div>
                         <Button variant='success' className='mt-2' onClick={() => { toast('You Will Get A Email Soon..You Order is booked') }}>Checkout</Button>
                     </div>
-                    <div className="product-details shadow-lg">
+                    <div className="product-details shadow-lg mt-2">
                         <div className="img">
                             <img src={bg} className="checkoutImg border rounded" alt="" />
                         </div>
