@@ -26,7 +26,7 @@ function App() {
           <Checkout />
         </RequireAuth>}
         ></Route>
-        <Route path="*" element={ErrorPage}></Route>
+        <Route path="*" element={<ErrorPage />}></Route>
       </Routes>
     </div>
   );
