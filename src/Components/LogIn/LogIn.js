@@ -149,7 +149,7 @@ const LogIn = () => {
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" placeholder="Password" onChange={handlePassword} />
                     </Form.Group>
-                    <button className='underline text-white' onClick={handlePassReset}>Forgot Your Password?</button>
+                    <button className='underline text-white' type='button' onClick={handlePassReset}>Forgot Your Password?</button>
                     <CustomLink to='/signUp'><p className='underline'> Don't have an account? </p></CustomLink>
 
                     <Button variant="outline-secondary" type="submit">
