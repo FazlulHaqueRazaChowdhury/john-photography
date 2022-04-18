@@ -1,7 +1,7 @@
 .blogs {
     background-image: url('https://i.ibb.co/D9GkSPz/towfiqu-barbhuiya-o-Zu-BNC-6-E2s-unsplash.jpg');
 
-    height: 100vh;
+    min-height: 100vh;
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
