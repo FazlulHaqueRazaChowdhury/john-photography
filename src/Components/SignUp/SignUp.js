@@ -146,7 +146,7 @@ const SignUp = () => {
                 <Form className='text-white container' onSubmit={handleSignup}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" onBlur={handleEmail} placeholder="Enter email" />
+                        <Form.Control type="email" onBlur={handleEmail} placeholder="Enter email" required />
                         {
                             errorInfo.emailError
                         }
@@ -154,14 +154,14 @@ const SignUp = () => {
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control onBlur={handlePassword} type="password" placeholder="Password" />
+                        <Form.Control onBlur={handlePassword} type="password" placeholder="Password" required />
                         {
                             errorInfo.passwordError
                         }
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Confirm Password</Form.Label>
-                        <Form.Control onBlur={handleConfirm} type="password" placeholder="Confirm Password" />
+                        <Form.Control onBlur={handleConfirm} type="password" placeholder="Confirm Password" required />
                         {
                             errorInfo.confirmError
                         }

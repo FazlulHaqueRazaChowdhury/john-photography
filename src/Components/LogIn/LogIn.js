@@ -141,13 +141,13 @@ const LogIn = () => {
                 <Form className='text-white container' onSubmit={handleSignIn}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" onChange={handleEmail} />
+                        <Form.Control type="email" placeholder="Enter email" onChange={handleEmail} required />
 
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" onChange={handlePassword} />
+                        <Form.Control type="password" placeholder="Password" onChange={handlePassword} required />
                     </Form.Group>
                     <button className='underline text-white' type='button' onClick={handlePassReset}>Forgot Your Password?</button>
                     <CustomLink to='/signUp'><p className='underline'> Don't have an account? </p></CustomLink>
