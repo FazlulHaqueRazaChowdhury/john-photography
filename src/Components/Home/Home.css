@@ -1,8 +1,7 @@
 .background-image {
-    background: url(https://i.ibb.co/mFyZtSs/petr-vysohlid-9fqw-Gq-GLUxc-unsplash.jpg);
+    background: url('https://i.ibb.co/6H3MbYy/main-bg-1.png');
     height: 100vh;
     background-attachment: fixed;
-    background-size: 110% 110%;
     background-position: center center;
     animation: shrink 5s infinite alternate;
 }

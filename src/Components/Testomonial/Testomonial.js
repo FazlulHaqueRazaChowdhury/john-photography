@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './Testomonial.css'
 const Testomonial = ({ tst }) => {
     const { img, name, qoute } = tst;
     return (

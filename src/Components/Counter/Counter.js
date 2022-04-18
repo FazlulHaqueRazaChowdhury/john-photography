@@ -8,7 +8,7 @@ const Counter = () => {
             </div>
             <div className="counter d-flex flex-column  align-items-center mt-5">
                 <h3>
-                    Provided Service to <CountUp delay={4} end={500} /> people
+                    Provided Service to <CountUp delay={2} end={500} /> people
                 </h3>
 
             </div>

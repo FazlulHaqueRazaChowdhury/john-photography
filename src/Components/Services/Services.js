@@ -5,7 +5,7 @@ const Services = () => {
     const service = [
         {
             id: 1,
-            bg: 'https://i.ibb.co/YyFxCHv/yulia-matvienko-WPu-VX6h-Wheo-unsplash.jpg',
+            bg: 'https://i.ibb.co/VH8j81z/billu-1.png',
             name: 'Portrait',
             price: '800',
             feature1: 'Shooting time 5 hours',
@@ -13,7 +13,7 @@ const Services = () => {
         },
         {
             id: 2,
-            bg: 'https://i.ibb.co/WzHH4y6/samantha-gades-x40-Q9jr-EVT0-unsplash.jpg',
+            bg: 'https://i.ibb.co/N1409k2/wedd-1.png',
             name: 'Wedding',
             price: '1600',
             feature1: 'Shooting time 12 hours',
@@ -21,7 +21,7 @@ const Services = () => {
         },
         {
             id: 3,
-            bg: 'https://i.ibb.co/wKXHz5L/noom-peerapong-2uw-FEAGUm6-E-unsplash.jpg',
+            bg: 'https://i.ibb.co/3m6HPDx/film.png',
             name: 'Short Film',
             price: '2000',
             feature1: 'Shooting time 12 hours',
